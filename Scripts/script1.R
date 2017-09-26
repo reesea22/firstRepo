@@ -19,7 +19,9 @@ if(is.null(lst$out))
 #Also change the call to pdf() such that it uses our argument:
   #pdf(lst$out)
 
-set.seed(297834) # pick your own seed
+if(!is.null(lst$seed))
+  set.seed(as.numeric(lst$seed))
+
 dat <- data_frame(pred = rnorm(100),
                   resp = pred + rnorm(100))
 
